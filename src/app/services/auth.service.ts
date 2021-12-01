@@ -53,7 +53,7 @@ export class AuthService {
     } else {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    console.log('Error Found', errorMessage);
+    console.log('Service Error Found', errorMessage);
     return throwError(errorMessage);
   }
 

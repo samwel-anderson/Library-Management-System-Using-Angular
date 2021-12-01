@@ -30,11 +30,15 @@ npx @angular/cli@13 update @angular/core@13 @angular/cli@13
    ng generate module authentication --routing
 
 
-6. Create Register &  Login Component in Authentication Module
+6. Create Register, Login & Logout Components in Authentication Module
    ng generate component authentication/register
    ng generate component authentication/login
+   ng generate component authentication/logout
 
 
 7. Create Guards to protect routes
-   ng generate guard guards/register
-   ng generate component authentication/login
+   ng generate guard guards/auth
+
+
+8. Create Interceptors to Intercept our network requests
+   ng generate interceptor services/interceptors/error

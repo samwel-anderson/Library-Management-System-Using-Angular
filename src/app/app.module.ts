@@ -43,8 +43,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthenticationModule} from './authentication/authentication.module';
+import {ToastrModule} from 'ngx-toastr';
+import {ErrorInterceptor} from './services/interceptors/error.interceptor';
 
 @NgModule({
   imports: [
@@ -65,6 +67,8 @@ import {AuthenticationModule} from './authentication/authentication.module';
     // DEFAULT MODULES
     ReactiveFormsModule,
     HttpClientModule,
+    // LIBRARY MODULES
+    ToastrModule.forRoot(), // ToastrModule added
     // CUSTOM MODULES
     AuthenticationModule
   ],
@@ -82,6 +86,8 @@ import {AuthenticationModule} from './authentication/authentication.module';
       useClass: HashLocationStrategy
     },
     IconSetService,
+
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [ AppComponent ]
 })

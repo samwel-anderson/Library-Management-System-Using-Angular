@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
+import {AuthGuard} from './guards/auth.guard';
+import {AppComponent} from './app.component';
 
 export const routes: Routes = [
   {
@@ -11,9 +13,16 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'auth',
-    loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
+    path: '',
+    component: AppComponent,
+    children: [
+      {
+        path: 'auth',
+        loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
+      }
+    ]
   },
+
   {
     path: '',
     component: DefaultLayoutComponent,
@@ -23,6 +32,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'dashboard',
+        canActivate: [AuthGuard],
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
       }
     ]
