@@ -47,6 +47,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthenticationModule} from './authentication/authentication.module';
 import {ToastrModule} from 'ngx-toastr';
 import {ErrorInterceptor} from './services/interceptors/error.interceptor';
+import {BooksModule} from './books/books.module';
+import {JwtInterceptor} from './services/interceptors/jwt.interceptor';
 
 @NgModule({
   imports: [
@@ -70,7 +72,8 @@ import {ErrorInterceptor} from './services/interceptors/error.interceptor';
     // LIBRARY MODULES
     ToastrModule.forRoot(), // ToastrModule added
     // CUSTOM MODULES
-    AuthenticationModule
+    AuthenticationModule,
+    BooksModule
   ],
   declarations: [
     AppComponent,
@@ -87,6 +90,7 @@ import {ErrorInterceptor} from './services/interceptors/error.interceptor';
     },
     IconSetService,
 
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [ AppComponent ]

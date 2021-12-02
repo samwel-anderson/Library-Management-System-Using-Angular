@@ -35,7 +35,8 @@ export class ErrorInterceptor implements HttpInterceptor {
             }
             if (error.status === 403) {
               // Forbidden, Permission Required
-              message = error.message;
+              // message = error.message;
+              message = error.error.detail;
               console.log('Permission Error & Error.Message');
               console.log(error);
               console.log(error.message);
@@ -53,7 +54,7 @@ export class ErrorInterceptor implements HttpInterceptor {
               });
             }
 
-            message = `Error Status: ${error.status}\nMessage: ${error.message}`;
+            // message = `Error Status: ${error.status}\nMessage: ${error.message}`;
           }
 
           this.toastr.error(message, 'Error!', {
@@ -63,7 +64,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
           console.log('Interceptor Error Found', message);
 
-          return throwError(message);
+          return throwError(error);
         })
       );
 

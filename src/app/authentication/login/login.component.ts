@@ -39,26 +39,22 @@ export class LoginComponent implements OnInit {
     this.password = data.password;
 
     this.authService.login(this.userName, this.password)
-      .subscribe({
-        next: () => {
-          console.log(data);
+      .subscribe(
+        res => {
           this.toastr.success('You have Successfully Logged in!', 'Success!', {
             timeOut: 8000,
           });
 
           localStorage.setItem('isUserLoggedIn', 'true');
-          this.tokenService.saveToken(data['access']);
-          this.tokenService.saveEmail(data['authenticatedUser']['email']);
-          this.tokenService.savePermissions(JSON.stringify(data['authenticatedUser']['user_permissions']));
+          this.tokenService.saveToken(res['access']);
+          this.tokenService.saveEmail(res['authenticatedUser']['email']);
+          this.tokenService.savePermissions(JSON.stringify(res['authenticatedUser']['user_permissions']));
 
-          if (data) { this.router.navigate(['/dashboard']); }
+          if (res) { this.router.navigate(['/dashboard']); }
         },
-        error: error => {
-          console.log('Subscription Error Occured during Login ');
-          console.log(error);
-
-        }
-      });
+        err => console.log('HTTP Error', err),
+        () => console.log('HTTP request completed.')
+      );
 
   }
 

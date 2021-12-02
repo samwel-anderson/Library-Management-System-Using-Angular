@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DefaultLayoutComponent } from './containers';
 import {AuthGuard} from './guards/auth.guard';
 import {AppComponent} from './app.component';
+import {BooksModule} from './books/books.module';
 
 export const routes: Routes = [
   {
@@ -34,7 +35,15 @@ export const routes: Routes = [
         path: 'dashboard',
         canActivate: [AuthGuard],
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
-      }
+      },
+      {
+        path: 'books',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./books/books.module').then(m => m.BooksModule)
+      },
+
+
+
     ]
   }
 ];

@@ -42,3 +42,16 @@ npx @angular/cli@13 update @angular/core@13 @angular/cli@13
 
 8. Create Interceptors to Intercept our network requests
    ng generate interceptor services/interceptors/error
+
+
+9. Create Books Module & Components & Interfaces & Services
+      ng generate module books --routing
+      ng generate component books/index
+      ng generate service books/services/book
+      ng generate interface books/interfaces/book
+
+
+
+10. Create Jwt Interceptor
+      ng generate interceptor services/interceptors/jwt
+

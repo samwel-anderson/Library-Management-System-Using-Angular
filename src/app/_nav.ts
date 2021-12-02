@@ -15,8 +15,8 @@ export const navItems: INavData[] = [
     name: 'Modules'
   },
   {
-    name: 'Users',
-    url: '/users',
+    name: 'Books',
+    url: '/books',
     icon: 'icon-drop'
   },
 ];
