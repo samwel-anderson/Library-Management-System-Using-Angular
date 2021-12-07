@@ -55,3 +55,7 @@ npx @angular/cli@13 update @angular/core@13 @angular/cli@13
 10. Create Jwt Interceptor
       ng generate interceptor services/interceptors/jwt
 
+
+11. Generate Menu Service to display Menu based on Roles / Permissions
+      ng generate service services/menu
+

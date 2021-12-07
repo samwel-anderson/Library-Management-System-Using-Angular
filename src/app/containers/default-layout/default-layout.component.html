@@ -48,32 +48,32 @@
 <div class="app-body">
   <app-sidebar #appSidebar [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized" (minimizedChange)="toggleMinimize($event)">
 
-    <div class="sidebar sidebar-show">
-      <div class="sidebar-nav">
-        <div class="nav-item">
-          <a class="nav-link"  routerLink="/dashboard">
-            <i class="nav-icon cil-speedometer"></i> Dashboard
-          </a>
-        </div>
+<!--    <div class="sidebar sidebar-show">-->
+<!--      <div class="sidebar-nav">-->
+<!--        <div class="nav-item">-->
+<!--          <a class="nav-link"  routerLink="/dashboard">-->
+<!--            <i class="nav-icon cil-speedometer"></i> Dashboard-->
+<!--          </a>-->
+<!--        </div>-->
 
-        <div class="nav-title">Modules</div>
+<!--        <div class="nav-title">Modules</div>-->
 
-        <div *ngIf="hasBooksMenu == true" class="nav-item">
-          <a class="nav-link" routerLink="/books">
-            <i class="nav-icon cil-speedometer"></i> Books
-            <span class="badge bg-primary">NEW</span>
-          </a>
-        </div>
-
-
-
-      </div>
-      <button class="sidebar-toggler" type="button"></button>
-    </div>
+<!--        <div *ngIf="hasBooksMenu == true" class="nav-item">-->
+<!--          <a class="nav-link" routerLink="/books">-->
+<!--            <i class="nav-icon cil-speedometer"></i> Books-->
+<!--            <span class="badge bg-primary">NEW</span>-->
+<!--          </a>-->
+<!--        </div>-->
 
 
 
-<!--    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>-->
+<!--      </div>-->
+<!--      <button class="sidebar-toggler" type="button"></button>-->
+<!--    </div>-->
+
+
+
+    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
     <app-sidebar-minimizer></app-sidebar-minimizer>
   </app-sidebar>
   <!-- Main content -->

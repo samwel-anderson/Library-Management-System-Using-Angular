@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
 
   // @ts-ignore
-  userName: string;
+  email: string;
   // @ts-ignore
   password: string;
   // @ts-ignore
@@ -29,16 +29,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.formData = new FormGroup({
-      userName: new FormControl('admin'),
+      email: new FormControl('admin'),
       password: new FormControl('admin'),
     });
   }
 
   onClickSubmit(data: any) {
-    this.userName = data.userName;
+    this.email = data.email;
     this.password = data.password;
 
-    this.authService.login(this.userName, this.password)
+    this.authService.login(this.email, this.password)
       .subscribe(
         res => {
           this.toastr.success('You have Successfully Logged in!', 'Success!', {
