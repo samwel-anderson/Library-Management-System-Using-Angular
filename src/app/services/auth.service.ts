@@ -43,6 +43,9 @@ export class AuthService {
   logout(): void {
     this.isUserLoggedIn = false;
     localStorage.removeItem('isUserLoggedIn');
+    window.sessionStorage.removeItem('accessToken');
+    window.sessionStorage.removeItem('email');
+    window.sessionStorage.removeItem('permissions');
   }
 
 
