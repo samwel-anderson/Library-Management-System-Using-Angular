@@ -1,11 +1,33 @@
 
-<div>
-  <h2 style="color: red;">
-    You have successfully logged out of the system, click the button to go home page
-  </h2>
+<div class="container h-100" style="margin-top: 120px;">
+  <div class="d-flex justify-content-center h-100">
+    <div class="user_card">
+      <div class="d-flex justify-content-center">
+        <div class="brand_logo_container">
+          <img src="/assets/img/brand/logo.svg" class="brand_logo" alt="Logo">
+        </div>
+      </div>
+      <div class="d-flex justify-content-center form_container">
+        <div class="d-flex justify-content-center mt-n4 mb-n5">
+          <h4> You have Logged Out</h4>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center form_container">
+        <div class="d-flex justify-content-center mt-n4 login_container">
+          <button (click)="goToLoginPage()" class="btn login_btn" style="color: white;">Login Again</button>
+        </div>
+      </div>
+
+      <div class="mt-4">
+
+        <div class="d-flex justify-content-center links">
+          <div class="text-center mt-20">
+            <div>Copyright ©<span id="copyrightDate"></span><a href="http://localhost:4200"> Company</a>. All Rights Reserved</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
-
-<br><br><br><br>
-<button class="btn-warning text-center" (click)="goToLoginPage()">Go to Login Page</button>

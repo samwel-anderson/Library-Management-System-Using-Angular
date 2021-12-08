@@ -6,6 +6,7 @@ import {Observable, of, throwError} from 'rxjs';
 import {tap, delay, catchError} from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Login} from '../interfaces/login';
+import {Register} from '../interfaces/register';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,21 @@ export class AuthService {
 
 
   constructor(private http: HttpClient) { }
+
+  register(name: string, email: string, password: string): Observable<any> {
+
+    const registerObj: Register = {
+      name: name,
+      email: email,
+      password: password
+    };
+
+    return this.http.post(this.apiURL + 'auth/register', registerObj)
+      .pipe(
+        catchError(this.errorHandler)
+      );
+
+  }
 
 
   login(userName: string, password: string): Observable<any> {
@@ -57,7 +73,9 @@ export class AuthService {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     console.log('Service Error Found', errorMessage);
-    return throwError(errorMessage);
+
+    // return throwError(errorMessage);
+    return throwError(error);
   }
 
 }

@@ -57,12 +57,14 @@ export class ErrorInterceptor implements HttpInterceptor {
             // message = `Error Status: ${error.status}\nMessage: ${error.message}`;
           }
 
-          this.toastr.error(message, 'Error!', {
-            timeOut: 8000,
-          });
+          // this.toastr.error(message, 'Error!', {
+          //   timeOut: 8000,
+          // });
           console.log(message);
 
           console.log('Interceptor Error Found', message);
+          console.log('Interceptor Error');
+          console.log(error);
 
           return throwError(error);
         })

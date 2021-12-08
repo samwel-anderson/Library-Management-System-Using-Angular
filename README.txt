@@ -59,3 +59,7 @@ npx @angular/cli@13 update @angular/core@13 @angular/cli@13
 11. Generate Menu Service to display Menu based on Roles / Permissions
       ng generate service services/menu
 
+
+12. Create Register Interface
+      ng generate interface interfaces/register
+
