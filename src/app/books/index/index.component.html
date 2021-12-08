@@ -3,6 +3,7 @@
     <div class="card">
       <div class="card-header">
         <i class="fa fa-align-justify"></i> Books List
+        <a *ngIf="hasAddMenu"  class="btn btn-sm btn-primary pull-right" routerLink="/books/create" >Add Books</a>
       </div>
       <div class="card-body">
         <table class="table table-bordered">
@@ -25,9 +26,12 @@
             <td>{{ book.subject }}</td>
             <td>{{ book.category }}</td>
             <td>
-              <a  class="btn btn-info">View</a>
-              <a  class="btn btn-primary">Edit</a>
-              <button type="button" class="btn btn-danger">Delete</button>
+              <div>
+                <a  *ngIf="hasViewMenu"   class="col-sm-3 btn btn-sm btn-info">View</a>
+                <a  *ngIf="hasEditMenu"   class="col-sm-4 mx-1 btn btn-sm btn-warning">Edit</a>
+                <button  *ngIf="hasDeleteMenu"   type="button" class="col-sm-3 ml-1 btn btn-sm btn-danger">Delete</button>
+              </div>
+
             </td>
           </tr>
 

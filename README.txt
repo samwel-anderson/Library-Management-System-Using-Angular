@@ -63,3 +63,9 @@ npx @angular/cli@13 update @angular/core@13 @angular/cli@13
 12. Create Register Interface
       ng generate interface interfaces/register
 
+13.  Create View, Create, & Edit Components
+      ng generate component books/view
+      ng generate component books/edit
+      ng generate component books/create
+
+
