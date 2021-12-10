@@ -28,6 +28,14 @@ export class BookService {
     //   );
   }
 
+
+  create(bookObject: Book): Observable<Book> {
+    return this.http.post<Book>(this.apiURL + 'books/', bookObject)
+      .pipe(
+        catchError(this.errorHandler)
+      );
+  }
+
   errorHandler(error: any) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
@@ -40,8 +48,8 @@ export class BookService {
       timeOut: 8000,
     });
 
-    return throwError(errorMessage);
+    return throwError(error);
   }
 
 }
-;
+
