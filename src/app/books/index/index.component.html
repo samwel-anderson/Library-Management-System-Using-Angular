@@ -27,9 +27,9 @@
             <td>{{ book.category }}</td>
             <td>
               <div>
-                <a  *ngIf="hasViewMenu"   class="col-sm-3 btn btn-sm btn-info">View</a>
-                <a  *ngIf="hasEditMenu"   class="col-sm-3 mx-1 btn btn-sm btn-warning">Edit</a>
-                <button  *ngIf="hasDeleteMenu"   type="button" class="col-sm-3 ml-1 btn btn-sm btn-danger">Delete</button>
+                <a  *ngIf="hasViewMenu"  [routerLink]="['/books/', book.id, 'view']"   class="col-sm-3 btn btn-sm btn-info">View</a>
+                <a  *ngIf="hasEditMenu"   [routerLink]="['/books/', book.id, 'edit']"     class="col-sm-3 mx-1 btn btn-sm btn-warning">Edit</a>
+                <button  *ngIf="hasDeleteMenu"   (click)="deleteBook(book.id)"  type="button" class="col-sm-3 ml-1 btn btn-sm btn-danger">Delete</button>
               </div>
 
             </td>

@@ -36,6 +36,14 @@ export class BookService {
       );
   }
 
+  delete(id: number) {
+    return this.http.delete(this.apiURL + 'books/' + id + '/', this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      );
+  }
+
+
   errorHandler(error: any) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
