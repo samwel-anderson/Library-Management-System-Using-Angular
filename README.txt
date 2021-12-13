@@ -69,3 +69,10 @@ npx @angular/cli@13 update @angular/core@13 @angular/cli@13
       ng generate component books/create
 
 
+
+14.  Create Student Dashboard
+      ng generate component dashboard/student-dashboard
+
+
+15.  Create Shared Components
+      ng generate component dashboard/shared/summary-tile
