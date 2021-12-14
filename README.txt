@@ -80,3 +80,6 @@ npx @angular/cli@13 update @angular/core@13 @angular/cli@13
 
 16.  Create Test Output Component
       ng generate component dashboard/shared/test-output
+
+17.  Create Table Component
+      ng generate component books/shared/books-list

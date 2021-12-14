@@ -1,0 +1,31 @@
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Book ID</th>
+    <th>Name</th>
+    <th>Subject</th>
+    <th>Category</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let book of books">
+    <td>{{ book.id }}</td>
+    <td>{{ book.book_id }}</td>
+    <td>{{ book.bookname }}</td>
+    <td>{{ book.subject }}</td>
+    <td>{{ book.category }}</td>
+    <td>
+      <div>
+        <a  *ngIf="hasViewMenu"  [routerLink]="['/books/', book.id, 'view']"   class="col-sm-3 btn btn-sm btn-info">View</a>
+        <a  *ngIf="hasEditMenu"   [routerLink]="['/books/', book.id, 'edit']"     class="col-sm-3 mx-1 btn btn-sm btn-warning">Edit</a>
+        <button  *ngIf="hasDeleteMenu"   (click)="deleteBook(book.id)"  type="button" class="col-sm-3 ml-1 btn btn-sm btn-danger">Delete</button>
+      </div>
+
+    </td>
+  </tr>
+
+  </tbody>
+</table>
