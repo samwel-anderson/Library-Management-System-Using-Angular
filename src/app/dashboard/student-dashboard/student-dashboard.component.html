@@ -13,4 +13,14 @@
       <app-summary-tile [summaryFigure]="'40'" [summaryTitle]="'Total Students'" [summaryDescription]="'Total Number of Students in The Class / School'"> </app-summary-tile>
     </div>
   </div>
+
+  <div>
+
+    <app-test-output  [musicianName]="'Test Name 12'"  (newMusicianEvent)="addArtists($event)"></app-test-output>
+
+    <ul>
+      <li *ngFor="let musician of musicians">{{musician}}</li>
+    </ul>
+
+  </div>
 </div>

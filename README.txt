@@ -76,3 +76,7 @@ npx @angular/cli@13 update @angular/core@13 @angular/cli@13
 
 15.  Create Shared Components
       ng generate component dashboard/shared/summary-tile
+
+
+16.  Create Test Output Component
+      ng generate component dashboard/shared/test-output
